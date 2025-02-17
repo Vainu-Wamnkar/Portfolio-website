@@ -1,0 +1,40 @@
+@import "@flaticon/flaticon-uicons/css/all/all";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #000;
+    color:white;
+}
+
+html{
+    font-family: sans-serif;
+} */
+
+
+/* #card{ */
+    /* background:#302f2f9f; */
+    /* background:linear-gradient(71deg,#080509,#1a171c,#080509);  */
+/* } */
+
+/* Animation keyframes */
+/* @keyframes spin {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+#countrydata-card{
+background:linear-gradient(71deg,#080509,#1a171c,#080509);
+} */
+
+  
