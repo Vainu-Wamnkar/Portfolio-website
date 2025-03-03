@@ -21,7 +21,7 @@ function Home() {
              <div className='w-[99%]  p-[2px] md:flex gap-6 items-center  lg:gap-14 lg:mt-5'>
                       <div className='mb-12 mt-8 w-[310px] h-[310px] bg-white rounded-full overflow-hidden flex justify-center items-center '>
                           {
-                              image && <img src={image} alt="image not found"  className=' rounded-full object-contain border-2 border-gray-300 '/>
+                              image && <img src={image} alt="image not found"  className=' rounded-full w-[310px] h-[310px] rounded-full object-cover border-2 border-gray-300 '/>
                           }
                           {
                               image?"":<label htmlFor="fileinput" className='text-black text-xl font-semibold text-gray-500 cursor-pointer '>Upload profile picture <input id='fileinput' type="file" alt='myimage' onChange={handleUploadImage} className='w-full h-full hidden'/></label>
