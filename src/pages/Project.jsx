@@ -5,7 +5,7 @@ function Project() {
 
   return (
     <div>
-        <div className=''>
+        <div className='mt-14'>
             <h1 className='text-3xl text-center mt-4 font-bold xl:mt-12'>My <span className='text-indigo-500'>Project</span></h1>
             <h1 className='text-center text-red-500 mt-3'>Note:Project not responsive for mobile</h1>
             <div className='px-2 py-4 border-2 rounded-lg border-indigo-500 mt-6 flex flex-col gap-5 sm:px-6 '>

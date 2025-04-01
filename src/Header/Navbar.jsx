@@ -1,67 +1,60 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { FaBars } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { Link, Outlet } from 'react-router-dom';
 
 function Navbar() {
+    const [navPoint, setNavPoint] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
 
-    const displayON=useRef();
-    const [navPoint,setNavpoint]=useState(0);
-    const [width,setWidth]=useState(window.innerWidth)
+    const handleToggle = () => {
+        setNavPoint((prev) => !prev);
+    };
 
-    const handleBar=()=>{
-      setNavpoint(1)
-    } 
-    const handleCross=()=>{
-      setNavpoint(0);
-    }
-
-    const handleResize=()=>{
-        setWidth(window.innerWidth);
-    }
-    useEffect(()=>{
-        window.addEventListener("resize",handleResize);
-    },[width])
-  
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <div className='p-4'>
             <header>
-                <nav className='h-auto border-b-2 border-indigo-600 pb-1'>
-                    <div className='flex  items-center justify-between '>
-                       <h1 className='text-bold text-2xl'>Vainu</h1>
-                       {  
-                       
-                          width<=768 ?(navPoint===1?( <RxCross1 className='text-2xl' onClick={handleCross}/>):( <FaBars className='text-2xl' onClick={handleBar}/>)):
-                          <div className='z-50 flex gap-12 mt-3 duration-1000 transition-all md:text-xl lg:gap-20'>
-                                <Link to={'/'}><p>Home</p></Link>
-                                <Link to={'/education'}><p>Education</p></Link>
-                                <Link to={'/skills'}><p>Skills</p></Link>
-                                <Link to={'/contact'}><p>Contact</p></Link>
-                                <Link to={'/project'}><p>Project</p></Link>
-                          </div>
-
-                       }
-                      
-                    </div>
-                    {
-                        navPoint===1?(
-                        <div className='z-50 flex justify-between mt-3 duration-1000 transition-all md:text-xl'>
-                            <Link to={'/'}><p>Home</p></Link>
-                            <Link to={'/education'}><p>Education</p></Link>
-                            <Link to={'/skills'}><p>Skills</p></Link>
-                            <Link to={'/contact'}><p>Contact</p></Link>
-                            <Link to={'/project'}><p>Project</p></Link>
-    
+                <nav className='h-auto relative'>
+                    <div className='w-full'>
+                        <div className={`flex items-center justify-between ${navPoint ? "" : "border-b-2 border-indigo-600 pb-1"}`}>
+                            <h1 className='text-bold text-2xl'>Vainu</h1>
+                            {width <= 768 ? (
+                                navPoint ? (
+                                    <RxCross1 className='text-2xl cursor-pointer' onClick={handleToggle} />
+                                ) : (
+                                    <FaBars className='text-2xl cursor-pointer' onClick={handleToggle} />
+                                )
+                            ) : (
+                                <div className='z-50 flex gap-12 mt-3 md:text-xl lg:gap-20'>
+                                    <Link to={'/'}>Home</Link>
+                                    <Link to={'/education'}>Education</Link>
+                                    <Link to={'/skills'}>Skills</Link>
+                                    <Link to={'/contact'}>Contact</Link>
+                                    <Link to={'/project'}>Project</Link>
+                                </div>
+                            )}
                         </div>
-                        ):""
-                    }
-                    
+                    </div>
+                    <div className={`absolute top-0 left-0 w-full  border-b-2 border-indigo-600  py-3 transition-transform duration-500 ease-in-out ${navPoint ? 'translate-y-[50%] opacity-100' : '-translate-y-[100%] opacity-0'}`} >
+                        <div className='flex flex-row items-center justify-between md:text-xl text-white'>
+                            <Link to={'/'} >Home</Link>
+                            <Link to={'/education'} >Education</Link>
+                            <Link to={'/skills'} >Skills</Link>
+                            <Link to={'/contact'} >Contact</Link>
+                            <Link to={'/project'} >Project</Link>
+                        </div>
+                    </div>
                 </nav>
             </header>
-            <Outlet/>
+            <Outlet />
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;

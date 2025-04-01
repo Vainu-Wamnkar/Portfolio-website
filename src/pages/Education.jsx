@@ -25,7 +25,7 @@ function Education() {
 
 
   return (
-    <div className='mt-5'>
+    <div className='mt-14'>
         <h1 className='text-2xl  font-bold text-center sm:text-[30px] xl:mt-12'>My <span className='text-indigo-500'>Journey</span></h1>
         <h1 className='text-2xl font-semibold mt-6 text-indigo-500 sm:text-[25px] '>Education</h1>
         <div className='flex flex-col gap-3 mt-2  md:gap-6 md:mt-4'>
