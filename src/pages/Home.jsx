@@ -8,27 +8,14 @@ function Home() {
 
     const [image,setImage]=useState(null)
 
-    function handleUploadImage(e){
-       const file=e.target.files[0];
-       if(file){
-        setImage(URL.createObjectURL(file));
-    
-       }
-    }
+
 
   return (
    <div className='py-1 '>
        <div className='flex flex-col gap-3 mt-4 md:mt-14 lg:gap-8'>
             <div className='w-[99%]  p-[2px] md:flex gap-6 items-center  lg:gap-14 lg:mt-5'>
-                <div className='mb-12 mt-8 w-[310px] h-[310px] bg-white rounded-full overflow-hidden flex justify-center items-center '>
-                    {
-                        image && <img src={image} alt="image not found"  className=' rounded-full object-contain border-2 border-gray-300 mt-[149px]'/>
-                    }
-                    {
-                        image?"":<label htmlFor="fileinput" className='text-black text-xl font-semibold text-gray-500 cursor-pointer '>Upload profile picture <input id='fileinput' type="file" alt='myimage' onChange={handleUploadImage} className='w-full h-full hidden'/></label>
-
-                    }                    
-                    
+                <div className='mb-12 mt-8 w-[310px] h-[310px]  rounded-full overflow-hidden flex justify-center items-center relative'>
+                        <img src="/ritik.jpg" alt="image not found"  className='w-full'/>
                 </div>
                 <div className=''>
                     <h1 className='text-2xl font-bold mt-3 sm:text-[30px] md:text-[30px] lg:text-[40px]'>Hi,I'm Vainu Wamnkar</h1>
